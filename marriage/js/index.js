@@ -130,7 +130,7 @@ function addLayer(){
 	maxZoom: 19
 });
 var osmThunder = new L.TileLayer('http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png');
-g_map.setView([55.953193, -3.198914], 15);
+g_map.setView([55.951, -3.189], 15);
 g_map.addLayer(carto);
   if(g_debugMode)
   g_map.on("click", _update, this);
