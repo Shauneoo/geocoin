@@ -279,23 +279,18 @@ UserSettingClass.prototype.checkIfMarried= function(){
 
 
 	/*
-
 	begin
-
 	INSERT INTO locations_archive (`userId`, `longitude`, `latitude`, `accuracy`, `timeReceived`)
 	SELECT `userId`, `longitude`, `latitude`, `accuracy`, `timeReceived`
 	FROM   locations
 	WHERE  `userId` = uId;
-
 	DELETE from locations
 	WHERE  `userId` = uId;
-
 	insert into locations (`userId`,
 	`longitude`,
 	`latitude`,
 	`accuracy`,
 	`timeReceived`)
 	Values(uId,latitude,longitude,accuracy,timest);
-
 	end
 	*/

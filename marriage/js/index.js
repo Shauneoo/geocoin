@@ -112,7 +112,8 @@ function checRequirements(){
 
 function initialiseMap(){
   checRequirements();
-  g_map = new L.map('map');//initialise map variable.
+  g_map = new L.map('map').setView([55.951, -3.189], 15);//initialise map variable.
+  //55.951, -3.189
   g_map.on('click', function(e) { $("#infoScreen").hide("slow") });
   addLayer();
 }
@@ -124,13 +125,12 @@ function addLayer(){
   // var mapLayer = new L.TileLayer(layerUrl, {minZoom: 8, maxZoom: 20, attribution: attrib});
   // g_map.setView(new L.LatLng(55.94860300,-3.18460200 ),18);
   // g_map.addLayer(mapLayer);
-  var carto = new L.TileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+  var carto = new L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>',
 	subdomains: 'abcd',
 	maxZoom: 19
 });
-var osmThunder = new L.TileLayer('http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png');
-g_map.setView([55.951, -3.189], 15);
+// var osmThunder = new L.TileLayer('http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png');
 g_map.addLayer(carto);
   if(g_debugMode)
   g_map.on("click", _update, this);
